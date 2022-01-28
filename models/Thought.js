@@ -4,7 +4,7 @@ const { reactionSchema } = require('./Reaction');
 const thoughtSchema = new mongoose.Schema(
   {
     thoughtText: { type: String, required: true, minlength: 1, maxlength: 280 },
-    createdAt: { type: Date, required: true },
+    createdAt: { type: Date, default: Date.now, required: true },
     username: { type: String, required: true },
     reactions: [reactionSchema],
   },
