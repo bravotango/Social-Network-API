@@ -9,4 +9,4 @@ const reactionSchema = new mongoose.Schema({
 
 const Reaction = mongoose.model('Reaction', reactionSchema);
 
-module.exports = { reactionSchema, Reaction };
+module.exports = Reaction;

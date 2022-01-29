@@ -20,12 +20,14 @@ module.exports = {
   getThoughts(req, res, next) {
     thought
       .find()
+      .populate('reactions')
       .then((thoughts) => res.status(200).json(thoughts))
       .catch((err) => next(err));
   },
   getSingleThought(req, res, next) {
     thought
       .findOne({ _id: req.params.thoughtId })
+      .populate('reactions')
       .then((dbThoughtData) => res.status(200).json(dbThoughtData))
       .catch((err) => next(err));
   },
