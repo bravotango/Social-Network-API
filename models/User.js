@@ -12,7 +12,7 @@ const userSchema = new mongoose.Schema(
     // Array of _id values referencing the Thought model
     thoughts: [{ type: mongoose.Schema.ObjectId, ref: 'Thought' }],
     // Array of _id values referencing the User model (self-reference)
-    friends: { type: [Number], required: false, unique: true, trim: true },
+    friends: [{ type: [String], required: false, unique: true, trim: true }],
   },
   {
     toJSON: {
