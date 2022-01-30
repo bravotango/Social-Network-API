@@ -17,7 +17,6 @@ module.exports = {
       })
       .catch((err) => next(err));
   },
-
   deleteReaction(req, res, next) {
     reaction
       .deleteOne({ _id: req.params.reactionId })

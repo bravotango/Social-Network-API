@@ -31,7 +31,6 @@ module.exports = {
       .then((dbThoughtData) => res.status(200).json(dbThoughtData))
       .catch((err) => next(err));
   },
-
   editThought(req, res, next) {
     thought
       .findOneAndUpdate({ _id: req.params.thoughtId }, req.body, {
