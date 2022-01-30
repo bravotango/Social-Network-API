@@ -12,8 +12,8 @@ module.exports = {
           { new: true }
         );
       })
-      .then((dbThoughtData) => {
-        res.status(200).json(dbThoughtData);
+      .then((dbUserData) => {
+        res.status(200).json(dbUserData);
       })
       .catch((err) => next(err));
   },
