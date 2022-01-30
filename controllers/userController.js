@@ -7,7 +7,6 @@ module.exports = {
       .then((users) => res.json(users))
       .catch((err) => next(err));
   },
-
   getSingleUser(req, res, next) {
     User.findOne({ _id: req.params.userId })
       .populate('thoughts')
@@ -18,13 +17,11 @@ module.exports = {
       )
       .catch((err) => next(err));
   },
-
   createUser(req, res, next) {
     User.create(req.body)
       .then((dbUserData) => res.status(200).json(dbUserData))
       .catch((err) => next(err));
   },
-
   editUser(req, res, next) {
     User.findOneAndUpdate({ _id: req.params.userId }, req.body, {
       returnDocument: 'after',
@@ -32,7 +29,6 @@ module.exports = {
       .then((dbUpdatedUser) => res.status(200).json(dbUpdatedUser))
       .catch((err) => next(err));
   },
-
   deleteUser(req, res, next) {
     User.deleteOne({ _id: req.params.userId })
       .then((dbDeleteResult) =>
@@ -42,7 +38,6 @@ module.exports = {
       )
       .catch((err) => next(err));
   },
-
   addFriend(req, res, next) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
@@ -54,7 +49,6 @@ module.exports = {
       })
       .catch((err) => next(err));
   },
-
   deleteFriend(req, res, next) {
     User.findOneAndUpdate(
       { _id: req.params.userId },
