@@ -1,4 +1,4 @@
-const moment = require('moment');
+const { shortDate } = require('../utils');
 const mongoose = require('mongoose');
 const thoughtSchema = new mongoose.Schema(
   {
@@ -7,7 +7,7 @@ const thoughtSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
       required: true,
-      get: formatDate,
+      get: shortDate,
     },
     username: { type: String, required: true },
     reactions: [{ type: mongoose.Schema.ObjectId, ref: 'Reaction' }],
@@ -20,10 +20,6 @@ const thoughtSchema = new mongoose.Schema(
     id: false,
   }
 );
-
-function formatDate(createdAt) {
-  return moment(createdAt).format('MMMM Do YYYY, h:mm:ss a');
-}
 
 thoughtSchema.virtual('reactionCount').get(function () {
   return `${this.reactions.length}`;
