@@ -4,11 +4,17 @@
 
 MongoDB is a popular choice for many social networks due to its speed with large amounts of data and flexibility with unstructured data. The foundation of these applications is data, so it is important to understand how to build and structure the API.
 
-This application is an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. This application uses Express.js for routing, a MongoDB database, and the Mongoose Object Data Modeling (ODM). In addition to using the [Express.js](https://www.npmjs.com/package/express), [Mongoose](https://www.npmjs.com/package/mongoose) packages, this application uses [Moment.js](https://www.npmjs.com/package/moment) package to format timestamps.
+This application is an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. This application uses Express.js for routing, a MongoDB database, and the Mongoose Object Data Modeling (ODM). In addition to using the [Express.js](https://www.npmjs.com/package/express) and [Mongoose](https://www.npmjs.com/package/mongoose) packages, this application uses [Moment.js](https://www.npmjs.com/package/moment) to format dates.
 
 No seed data is provided, so you’ll need to create your own data using an application like [Insomnia](https://insomnia.rest/download).
 
-Since this application is not deployed, this [walkthrough video]() demonstrates its functionality and all of the following acceptance criteria being met.
+### Insomnia Screenshot
+
+`Example of the 'Create Thought' POST route:`
+
+![API POST route - Create Thought](./assets/insomnia.png)
+
+Since this application is not deployed, this [walk-through video]() demonstrates its functionality and all of the following acceptance criteria being met.
 
 ## User Story
 
@@ -86,7 +92,7 @@ Virtual called `friendCount` retrieves the length of the user's `friends` array 
 
   - Date
   - Sets default value to the current timestamp
-  - Getter method formats the timestamp on query with Moment.js
+  - Getter method formats the timestamp on query with [Moment.js](https://www.npmjs.com/package/moment)
 
 - `username` (The user that created this thought)
 
@@ -175,7 +181,7 @@ This will not be a model, but rather will be used as the `reaction` field's subd
 // example data
 {
   "username": "bravotango",
-  "thoughtText": "When I have thoughts, they tend to be deep thoughts."
+  "thoughtText": "When I have thoughts, they tend to be deep"
 }
 ```
 
