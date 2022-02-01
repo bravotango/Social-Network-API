@@ -2,23 +2,24 @@
 
 ## Task
 
-MongoDB is a popular choice for many social networks due to its speed with large amounts of data and flexibility with unstructured data. Over the last part of this course, you’ll use several of the technologies that social networking platforms use in their full-stack applications. Because the foundation of these applications is data, it’s important that you understand how to build and structure the API first.
+MongoDB is a popular choice for many social networks due to its speed with large amounts of data and flexibility with unstructured data. The foundation of these applications is data, so it is important to understand how to build and structure the API.
 
-Your homework is to build an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. You’ll use Express.js for routing, a MongoDB database, and the Mongoose ODM. In addition to using the [Express.js](https://www.npmjs.com/package/express) and [Mongoose](https://www.npmjs.com/package/mongoose) packages, you may also optionally use a JavaScript date library of your choice or the native JavaScript `Date` object to format timestamps.
+This application is an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. This application uses Express.js for routing, a MongoDB database, and the Mongoose Object Data Modeling (ODM). In addition to using the [Express.js](https://www.npmjs.com/package/express), [Mongoose](https://www.npmjs.com/package/mongoose) packages, this application uses [Moment.js](https://www.npmjs.com/package/moment) package to format timestamps.
 
-No seed data is provided, so you’ll need to create your own data using Insomnia after you’ve created your API.
+No seed data is provided, so you’ll need to create your own data using an application like [Insomnia](https://insomnia.rest/download).
 
-Because this application won’t be deployed, you’ll also need to create a walkthrough video that demonstrates its functionality and all of the following acceptance criteria being met. You’ll need to submit a link to the video and add it to the README of your project.
+Since this application is not deployed, this [walkthrough video]() demonstrates its functionality and all of the following acceptance criteria being met.
 
 ## User Story
 
 ```md
 AS A social media startup
+
 I WANT an API for my social network that uses a NoSQL database
 SO THAT my website can handle large amounts of unstructured data
 ```
 
-## Acceptance Criteria
+## Satisfied Acceptance Criteria
 
 ```md
 GIVEN a social network API
@@ -36,35 +37,11 @@ WHEN I test API POST and DELETE routes in Insomnia
 THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
 ```
 
-## Mock Up
-
-The following animations show examples of the application's API routes being tested in Insomnia.
-
-The following animation shows GET routes to return all users and all thoughts being tested in Insomnia:
-
-![Demo of GET routes to return all users and all thoughts being tested in Insomnia.](./Assets/18-nosql-homework-demo-01.gif)
-
-The following animation shows GET routes to return a single user and a single thought being tested in Insomnia:
-
-![Demo that shows GET routes to return a single user and a single thought being tested in Insomnia.](./Assets/18-nosql-homework-demo-02.gif)
-
-The following animation shows the POST, PUT, and DELETE routes for users being tested in Insomnia:
-
-![Demo that shows the POST, PUT, and DELETE routes for users being tested in Insomnia.](./Assets/18-nosql-homework-demo-03.gif)
-
-In addition to this, your walkthrough video should show the POST, PUT, and DELETE routes for thoughts being tested in Insomnia.
-
-The following animation shows the POST and DELETE routes for a user’s friend list being tested in Insomnia:
-
-![Demo that shows the POST and DELETE routes for a user’s friend list being tested in Insomnia.](./Assets/18-nosql-homework-demo-04.gif)
-
-In addition to this, your walkthrough video should show the POST and DELETE routes for reactions to thoughts being tested in Insomnia.
-
 ## Getting Started
 
 Be sure to have MongoDB installed on your machine. Follow the [MongoDB installation guide on The Full-Stack Blog](https://coding-boot-camp.github.io/full-stack/mongodb/how-to-install-mongodb) to install MongoDB locally.
 
-Use the following guidelines to set up your models and API routes:
+Models and API routes:
 
 ### Models
 
@@ -82,7 +59,7 @@ Use the following guidelines to set up your models and API routes:
   - String
   - Required
   - Unique
-  - Must match a valid email address (look into Mongoose's matching validation)
+  - Validation: Must match a valid email address
 
 - `thoughts`
 
@@ -93,7 +70,7 @@ Use the following guidelines to set up your models and API routes:
 
 **Schema Settings**:
 
-Create a virtual called `friendCount` that retrieves the length of the user's `friends` array field on query.
+Virtual called `friendCount` retrieves the length of the user's `friends` array field on query.
 
 ---
 
@@ -108,8 +85,8 @@ Create a virtual called `friendCount` that retrieves the length of the user's `f
 - `createdAt`
 
   - Date
-  - Set default value to the current timestamp
-  - Use a getter method to format the timestamp on query
+  - Sets default value to the current timestamp
+  - Getter method formats the timestamp on query with Moment.js
 
 - `username` (The user that created this thought)
 
@@ -121,7 +98,7 @@ Create a virtual called `friendCount` that retrieves the length of the user's `f
 
 **Schema Settings**:
 
-Create a virtual called `reactionCount` that retrieves the length of the thought's `reactions` array field on query.
+Virtual called `reactionCount` retrieves the length of the thought's `reactions` array field on query.
 
 ---
 
@@ -129,7 +106,7 @@ Create a virtual called `reactionCount` that retrieves the length of the thought
 
 - `reactionId`
 
-  - Use Mongoose's ObjectId data type
+  - Mongoose's ObjectId data type
   - Default value is set to a new ObjectId
 
 - `reactionBody`
@@ -145,7 +122,7 @@ Create a virtual called `reactionCount` that retrieves the length of the thought
 
 - `createdAt`
   - Date
-  - Set default value to the current timestamp
+  - Sets default value to the current timestamp
   - Use a getter method to format the timestamp on query
 
 **Schema Settings**:
@@ -165,8 +142,8 @@ This will not be a model, but rather will be used as the `reaction` field's subd
 ```json
 // example data
 {
-  "username": "lernantino",
-  "email": "lernantino@gmail.com"
+  "username": "bravotango",
+  "email": "bravotango@gmail.com"
 }
 ```
 
@@ -174,11 +151,11 @@ This will not be a model, but rather will be used as the `reaction` field's subd
 
 - `DELETE` to remove user by its `_id`
 
-**BONUS**: Remove a user's associated thoughts when deleted.
+**BONUS INCLUDED**: Removes a user's associated thoughts when deleted.
 
 ---
 
-**`/api/users/:userId/friends/:friendId`**
+**`/api/users/:userId/:friendId`**
 
 - `POST` to add a new friend to a user's friend list
 
@@ -186,7 +163,7 @@ This will not be a model, but rather will be used as the `reaction` field's subd
 
 ---
 
-**`/api/thoughts`**
+**`/api/thoughts/:userId`**
 
 - `GET` to get all thoughts
 
@@ -197,9 +174,8 @@ This will not be a model, but rather will be used as the `reaction` field's subd
 ```json
 // example data
 {
-  "thoughtText": "Here's a cool thought...",
-  "username": "lernantino",
-  "userId": "5edff358a0fcb779aa7b118b"
+  "username": "bravotango",
+  "thoughtText": "When I have thoughts, they tend to be deep thoughts."
 }
 ```
 
@@ -209,9 +185,19 @@ This will not be a model, but rather will be used as the `reaction` field's subd
 
 ---
 
-**`/api/thoughts/:thoughtId/reactions`**
+**`/api/reactions/:thoughtId`**
 
 - `POST` to create a reaction stored in a single thought's `reactions` array field
+
+```json
+// example data
+{
+  "reactionBody": "I like ur ideas",
+  "username": "bt"
+}
+```
+
+**`/api/reactions/:reactionId`**
 
 - `DELETE` to pull and remove a reaction by the reaction's `reactionId` value
 
@@ -267,9 +253,9 @@ This homework is graded based on the following criteria:
 
 - Repository contains a high-quality README with description and a link to a walkthrough video.
 
-### Bonus: +10 Points
+### Bonus
 
-- Application deletes a user's associated thoughts when the user is deleted.
+- This application deletes a user's associated thoughts when the user is deleted.
 
 ## Review
 
