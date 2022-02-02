@@ -16,15 +16,15 @@ No seed data is provided, so you’ll need to create your own data using an appl
 
 `Example of the 'createReaction' POST route:`
 
-<img src="./assets/insomnia-createReaction.png" width="66%" alt="createReaction"/>
+<img src="./assets/i-createReaction.png" width="66%" alt="createReaction"/>
 
 `Example of the 'getSingleThought' GET route:`
 
-<img src="./assets/insomnia-getSingleThought.png" width="66%" alt="getSingleThought"/>
+<img src="./assets/i-getSingleThought.png" width="66%" alt="getSingleThought"/>
 
 `Example of the 'getUsers' GET route:`
 
-<img src="./assets/insomnia-getUsers.png" width="66%" alt="getUsers"/>
+<img src="./assets/i-getUsers.png" width="66%" alt="getUsers"/>
 
 Since this application is not deployed, this [walk-through video](https://watch.screencastify.com/v/G4tX1tZLS4q9ixH3QAuG) demonstrates its functionality and all of the following acceptance criteria being met.
 
