@@ -6,9 +6,9 @@ MongoDB is a popular choice for many social networks due to its speed with large
 
 This application is an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. This application uses Express.js for routing, a MongoDB database, and the Mongoose Object Data Modeling (ODM). In addition to using the [Express.js](https://www.npmjs.com/package/express) and [Mongoose](https://www.npmjs.com/package/mongoose) packages, this application uses [Moment.js](https://www.npmjs.com/package/moment) to format dates.
 
-No seed data is provided, so you’ll need to create your own data using an application like [Insomnia](https://insomnia.rest/download).
-
 ### Insomnia Screenshot
+
+No seed data is provided, so you’ll need to create your own data using an application like [Insomnia](https://insomnia.rest/download).
 
 `Example of the 'Create Thought' POST route:`
 
