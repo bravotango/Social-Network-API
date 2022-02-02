@@ -1,4 +1,4 @@
-const { shortDate } = require('../utils');
+const { longDate } = require('../utils');
 const mongoose = require('mongoose');
 const thoughtSchema = new mongoose.Schema(
   {
@@ -7,7 +7,7 @@ const thoughtSchema = new mongoose.Schema(
       type: Date,
       default: Date.now,
       required: true,
-      get: shortDate,
+      get: longDate,
     },
     username: { type: String, required: true },
     reactions: [{ type: mongoose.Schema.ObjectId, ref: 'Reaction' }],
@@ -17,6 +17,7 @@ const thoughtSchema = new mongoose.Schema(
       virtuals: true,
       getters: true,
     },
+    id: false,
   }
 );
 

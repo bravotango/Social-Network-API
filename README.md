@@ -10,9 +10,21 @@ This application is an API for a social network web application where users can 
 
 No seed data is provided, so you’ll need to create your own data using an application like [Insomnia](https://insomnia.rest/download).
 
-`Example of the 'Create Thought' POST route:`
+`Example of the 'createThought' POST route:`
 
-![API POST route - Create Thought](./assets/insomnia.png)
+<img src="./assets/insomnia.png" width="66%" alt="createThought"/>
+
+`Example of the 'createReaction' POST route:`
+
+<img src="./assets/insomnia-createReaction.png" width="66%" alt="createReaction"/>
+
+`Example of the 'getSingleThought' GET route:`
+
+<img src="./assets/insomnia-getSingleThought.png" width="66%" alt="getSingleThought"/>
+
+`Example of the 'getUsers' GET route:`
+
+<img src="./assets/insomnia-getUsers.png" width="66%" alt="getUsers"/>
 
 Since this application is not deployed, this [walk-through video](https://watch.screencastify.com/v/G4tX1tZLS4q9ixH3QAuG) demonstrates its functionality and all of the following acceptance criteria being met.
 
